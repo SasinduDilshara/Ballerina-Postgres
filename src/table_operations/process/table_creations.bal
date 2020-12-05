@@ -8,28 +8,6 @@ import ballerina/sql;
 
 
 
-function createJsonTable(jdbc:Client jdbcClient) returns int|string|sql:Error?{
-
-   string tableName = "jsonTypes";
-
-        CreateQueries createTableQuery = createQueryMaker({
-            "ID": "SERIAL", 
-            "jsonType":"json",
-            "jsonbType":"jsonb",
-            "jsonpathType":"jsonpath"
-        },"ID");
-
-        int|string|sql:Error? initResult = initializeTable(jdbcClient, tableName , createTableQuery.createQuery);
-        if (initResult is int) {
-            io:println("Sample executed successfully!");
-        } 
-        else if (initResult is sql:Error) {
-            io:println("Customer table initialization failed: ", initResult);
-    }
-
-    return initResult;
-
-}
 
 function createArrayTable(jdbc:Client jdbcClient) returns int|string|sql:Error?{
 

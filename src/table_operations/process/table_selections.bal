@@ -381,40 +381,6 @@ function arrayTableSelection(jdbc:Client jdbcClient, string columns = "*",string
 // };
 
 
-function jsonTableSelection(jdbc:Client jdbcClient, string columns = "*",string condition = "True") returns sql:Error?{
-//             "jsonType":"json",
-//             "jsonbType":"jsonb",
-//             "jsonpathType":"jsonpath"
-     io:println("------ Start Query in Json table-------");
-
-    string selectionQuery = selecionQueryMaker("jsonTypes",columns,condition);
-
-
-        stream<record{}, error> resultStream =
-        jdbcClient->query(selectionQuery, JsonRecord);
-
-
-    stream<JsonRecord, sql:Error> customerStream =
-        <stream<JsonRecord, sql:Error>>resultStream;
-    
-    error? e = customerStream.forEach(function(JsonRecord rec) {
-        io:println("\n");
-        io:println(rec);
-        io:println(rec.jsonType);
-        io:println(rec.jsonbType);
-        io:println(rec.jsonpathType);
-        io:println("\n");
-    });
-    
-    if (e is error) {
-        io:println(e);
-    }
-
-    io:println("------ End Query in Json table-------");
-
-
-}
-
 
 
 

@@ -11,53 +11,6 @@ time:Time time_ = time:currentTime();
 
 
 
-function JsonTableInsertions(jdbc:Client jdbcClient) returns sql:ExecutionResult|sql:Error?{
-
-    sql:ExecutionResult|sql:Error? result;
-    result = insertJsonTable(jdbcClient,
-    
-     "{\"bar\": \"baz\", \"balance\": 7.77, \"active\":false}", "{\"bar\": \"baz\", \"balance\": 7.77, \"active\":false}","$.floor[*].apt[*] ? (@.area > 40 && @.area < 90) ? (@.rooms > 2)"
-
-    );
-    result = insertJsonTable(jdbcClient,
-    
-      "{\"bar\": \"baz\", \"balance\": 7.77, \"active\":false}", "{\"bar\": \"baz\", \"balance\": 7.77, \"active\":false}","$.floor[*].apt[*] ? (@.area > 40 && @.area < 90) ? (@.rooms > 2)"  
-
-    );
-    return result;
-
-}
-
-function insertJsonTable(jdbc:Client jdbcClient ,string jsonType, string jsonbType, string jsonPathType) returns sql:ExecutionResult|sql:Error?{
-
-// "ID": "SERIAL", 
-//             "jsonType":"json",
-//             "jsonbType":"jsonb",
-//             "jsonpathType":"jsonpath"
-   sql:ParameterizedQuery insertQuery =
-            `INSERT INTO jsonTypes (
-                jsonType, jsonbType, jsonPathType
-                             ) 
-             VALUES (
-                ${jsonType}:: json, ${jsonbType}:: jsonb, ${jsonPathType}:: jsonpath 
-            )`;
-    
-
-    sql:ExecutionResult|sql:Error result = jdbcClient->execute(insertQuery);
-
-    if (result is sql:ExecutionResult) {
-        io:println("\nInsert success, generated Id: ", result.lastInsertId);
-    } 
-    else{
-        io:println("\nError ocurred while insert to numeric table\n");
-        io:println(result);
-        io:println("\n");
-    }
-    
-    return result;
-        
-
-}
 function arrayTableInsertions(jdbc:Client jdbcClient) returns sql:ExecutionResult|sql:Error?{
 
     sql:ExecutionResult|sql:Error? result;

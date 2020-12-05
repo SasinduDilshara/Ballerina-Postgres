@@ -19,14 +19,6 @@ public function test(){
 
 
 
-public type JsonRecord record{
-    
-    int ID;
-    json jsonType;
-    json jsonbType;
-    string jsonpathType;
-};
-
 
 public type ArrayRecord record{
     
