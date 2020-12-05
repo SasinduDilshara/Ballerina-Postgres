@@ -74,7 +74,7 @@ sql:TextValue TextVal2 = new("A");
 
 
 int inter = 4;
-string pointVal = "(1,2)";
+
 string inetVal = "192.168.0.1/24";
 
 
@@ -161,9 +161,7 @@ function proceduresCalls(jdbc:Client jdbcClient)  returns sql:ProcedureCallResul
 
 
 
-    // result = geometricProcedureCall(jdbcClient,
-    //     pointVal,pointVal
-    // );
+
     // result = networkProcedureCall(jdbcClient,
     //     inetVal,inetVal
     // );
