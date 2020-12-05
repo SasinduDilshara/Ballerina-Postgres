@@ -62,11 +62,6 @@ sql:TextValue TextVal2 = new("A");
 
 // byte[] byteVal1 = [1,2,3,4,5,6];
 // byte[] byteVal2 = [1,2,3,4,5,6];
-byte[] byteVal3 = [1,2,3,4,5,6];
-byte[] byteVal4 = [1,2,3,4,5,6];
-
-sql:BinaryValue byteVal1 = new(byteVal3);
-sql:BinaryValue byteVal2 = new(byteVal4);
 
 sql:TimestampValue timeStampValue = new("1997-12-17 15:37:16.00");
 sql:TimestampValue timeStamptzValue = new("1997-12-17 15:37:16.00");
@@ -168,9 +163,7 @@ function proceduresCalls(jdbc:Client jdbcClient)  returns sql:ProcedureCallResul
     // );
     // io:println(byteVal1.value);
 
-    // result = binaryProcedureCall(jdbcClient,
-    //     byteVal1,byteVal2
-    // );
+ 
 
 
 

@@ -6,7 +6,7 @@ function run(jdbc:Client jdbcClient){
     _ = NumericTableProcess(jdbcClient);
     _ = MoneyTableProcess(jdbcClient);
     _ = CharacterTableProcess(jdbcClient);
-    // _ = BinaryTableProcess(jdbcClient);
+    _ = BinaryTableProcess(jdbcClient);
     // _ = DatetimeTableProcess(jdbcClient);
     // _ = BooleanTableProcess(jdbcClient);
     // _ = EnumTableProcess(jdbcClient);
