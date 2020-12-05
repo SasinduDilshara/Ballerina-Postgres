@@ -108,34 +108,6 @@ function insertRangeTable(jdbc:Client jdbcClient ,string int4rangeType, string i
 
 }
 
-    byte[] byteval = [1,2,3,4,5];
-
-    sql:TimestampValue timeStamptzValue2= new("2004-10-19 10:23:54");
-
-    int[] intarr = [1,2,3];
-
-    sql:ArrayValue arrVal = new(intarr);
-
-function domainTableInsertions(jdbc:Client jdbcClient) returns sql:ExecutionResult|sql:Error?{
-
-    sql:ExecutionResult|sql:Error? result;
-    
-
-        result = insertDomainTable(jdbcClient,
-    
-        2147483647,32767,9223372036854775807,
-        123456.123456,123456.123456,0.123456,123456654321.123,
-        "CHAR","VARCHAR","TEXT","name",
-        byteval
-        ,timeStamptzValue2
-        ,true
-        ,arrVal
-
-    );
-
-    return result;
-
-}
 
 
 
