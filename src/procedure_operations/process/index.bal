@@ -24,6 +24,7 @@ function run(jdbc:Client jdbcClient){
     _ = domainTableProcess(jdbcClient);
     _  = objectidentifiersTableProcess(jdbcClient);
     _ = pglsnTableProcess(jdbcClient);
+    _ = anyTableProcess(jdbcClient);
     
 
 }

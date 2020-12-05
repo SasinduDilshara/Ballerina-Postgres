@@ -1,12 +1,28 @@
 import ballerina/io;
 import ballerina/java.jdbc;
-// import ballerina/auth;
 import ballerina/sql;
-import ballerina/time;
+
+string anyVal1 = "1";
+string anyVal2= "[1,2,3,4,5]";
+string anyVal3 = "3";
+string anyVal4 = "value1";
+string anyVal5 = "(1,4)";
+string anyVal6 = "{ID:1}";
 
 
+function anyTableProcess(jdbc:Client jdbcClient) {
 
-time:Time time_ = time:currentTime();
+    sql:ExecutionResult|sql:Error createResult  =  createAnyProcedures(jdbcClient);
+    // sql:ProcedureCallResult|sql:Error callResult;
+
+//    callResult = anyProcedureCall(jdbcClient,
+//         anyVal1,anyVal1,arrVal,arrVal,anyVal3,anyVal3,anyVal4,anyVal4,anyVal5,anyVal5,anyVal6,anyVal6
+//     );
+
+     sql:ExecutionResult|sql:Error teardownResult = anyTearDown(jdbcClient);
+
+}
+
 
 
 string anyProcName = "anytest";
@@ -154,193 +170,3 @@ function anyTearDown(jdbc:Client jdbcClient) returns sql:ExecutionResult|sql:Err
     return result;  
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-string numProcName2 = "smallAndInttest";
-map<string> values2 = {
-    "smallIntInValue": "smallint","inout smallIntOutValue":"smallint"
-    // "IntInValue":"integer","inout intOutValue":"integer"
-};
-function createNumericProcedures2(jdbc:Client jdbcClient) returns sql:ExecutionResult|sql:Error{
-
-    sql:ExecutionResult|sql:Error result;
-
-
-    string query = createQuery(
-        numProcName2,
-        numProcParameters2,
-        "select smallIntInValue into smallIntOutValue;"
-        // "select intInValue into intOutValue;"
-        
-    );
-    io:println(query);
-    result = jdbcClient->execute(query);
-
-    if(result is sql:ExecutionResult){
-        io:println("smallAndInttest Procedure is initialization Success");
-        io:println(result);
-        io:println("\n");
-    }
-    else{
-        io:println("smallAndInttest Procedure is initialization failed");
-        io:println(result);
-        io:println("\n");
-    }
-
-
-    return result;  
-
-}
-
-
-function numericProcedureCall2(jdbc:Client jdbcClient,
-    sql:SmallIntValue inSmallInput,        sql:SmallIntValue outSmallInput,
-    sql:IntegerValue Inputint,             sql:IntegerValue outInt
-    )  returns sql:ProcedureCallResult|sql:Error {
-
-// ${inSmallInput},
-// ${outSmallInputId},
-// ${Inputint},
-// ${outIntId}
-
-
-    sql:ProcedureCallResult|sql:Error result;
-
-    sql:InOutParameter outSmallInputId = new (outSmallInput);
-    sql:InOutParameter outIntId = new (outInt);
-
-    sql:ParameterizedCallQuery callQuery =
-            `call smallAndInttest(
-                ${inSmallInput},
-                ${outSmallInputId}
-            )`;
-    
-
-    result = jdbcClient->call(callQuery);
-
-    if (result is sql:ProcedureCallResult) {
-        io:println("\n");
-        io:println(result);
-        io:println("SmallInt"," - ",outSmallInputId.get(int));
-        // io:println("Int"," - ",outIntId.get(int));
-        io:println("Numeric procedure successfully created");
-        io:println("\n");
-    } 
-    else{
-        io:println("\nError ocurred while creating the Numeric procedure\n");
-        io:println(result);
-        io:println("\n");
-    }
-
-    return result;      
-
-}
-
-
-// string numProcParameters2 = "smallIntInValue smallint, inout smallIntOutValue smallint";
-string numProcParameters2 = createParas(values2);
-string dropProcParameters2 = createDrops(values2);
-
-function numericalTearDown2(jdbc:Client jdbcClient) returns sql:ExecutionResult|sql:Error{
-
-    sql:ExecutionResult|sql:Error result;
-
-
-    string query = dropQuery(
-        numProcName2,
-        dropProcParameters2
-    );
-    io:println(query);
-    result = jdbcClient->execute(query);
-
-    if(result is sql:ExecutionResult){
-        io:println("smallAndInttest Procedure is drop Success");
-        io:println(result);
-        io:println("\n");
-    }
-    else{
-        io:println("smallAndInttest Procedure is drop failed");
-        io:println(result);
-        io:println("\n");
-    }
-
-
-    return result;  
-
-}
-
-
-
-
-
-
-
