@@ -12,46 +12,6 @@ public function test(){
 
 
 
-// sql:StructValue complexRecord = new(record{
-
-// })
-
-public type complexR record{|
-        float r;
-        float i;
-    |};
-
-//         int ID;
-    
-//     // string complexType;
-//     // sql:StructValue complexType;
-
-// //    record{
-// //         float r;
-// //         float i;
-// //     } complexType;
-
-//     string inventoryType;
-
-
-//     // record{|
-//     //     string name;
-//     //     int supplier_id;
-//     //     decimal price;
-//     // |} inventoryType;
-
-public type ComplexRecord record{
-    
-    int ID;
-    
-    // complexR complexType;
-    string complexType;
-
-    string inventoryType;
-
-    
-};
-
 
 public type RangeRecord record{
     

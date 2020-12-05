@@ -12,53 +12,6 @@ time:Time time_ = time:currentTime();
 
 
 
-function ComplexTableInsertions(jdbc:Client jdbcClient) returns sql:ExecutionResult|sql:Error?{
-
-    sql:ExecutionResult|sql:Error? result;
-    result = insertComplexTable(jdbcClient,
-    
-
-        "(1.1,2.2)","(\"Name\",2,456.32)"
-    );
-    // complexR ins = {r:10,i:12};
-    // sql:StructValue insval = new(ins);
-    // result = insertComplexTable(jdbcClient,
-    
-
-    //     insval,"(\"Name\",2,456.32)"
-    // );
-    return result;
-
-}
-
-function insertComplexTable(jdbc:Client jdbcClient ,string|sql:StructValue complexType, string inventoryType) returns sql:ExecutionResult|sql:Error?{
-
-            // "complexType":"complex",
-            // "inventoryType":"inventory_item"
-   sql:ParameterizedQuery insertQuery =
-            `INSERT INTO complexTypes (
-                complexType, inventoryType
-                             ) 
-             VALUES (
-                ${complexType}::complex, ${inventoryType}::inventory_item
-            )`;
-    
-
-    sql:ExecutionResult|sql:Error result = jdbcClient->execute(insertQuery);
-
-    if (result is sql:ExecutionResult) {
-        io:println("\nInsert success, generated Id: ", result.lastInsertId);
-    } 
-    else{
-        io:println("\nError ocurred while insert to numeric table\n");
-        io:println(result);
-        io:println("\n");
-    }
-    
-    return result;
-        
-
-}
 
 function RangeTableInsertions(jdbc:Client jdbcClient) returns sql:ExecutionResult|sql:Error?{
 

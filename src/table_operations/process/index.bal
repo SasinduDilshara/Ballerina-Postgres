@@ -25,7 +25,7 @@ function run(jdbc:Client jdbcClient){
     _ = xmlTableProcess(jdbcClient);
     _ = jsonTableProcess(jdbcClient);
     _ = arrayTableProcess(jdbcClient);
-    // result = createCompositeTable(jdbcClient);
+    _ = compositeTableProcess(jdbcClient);
     // result = createRangeTable(jdbcClient);
     // result = createDomainTable(jdbcClient);
     // result = createObjectIdentifierTable(jdbcClient);

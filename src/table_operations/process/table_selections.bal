@@ -238,69 +238,6 @@ function rangeTableSelection(jdbc:Client jdbcClient, string columns = "*",string
 
 
 
-//.........................................................................................................
-
-
-
-
-// public type ComplexRecord record{
-    
-//     int ID;
-    
-//     string complexType;
-//     string inventoryType;
-
-//     // record{|
-//     //     decimal r;
-//     //     decimal i;
-//     // |} complexType;
-
-//     // record{|
-//     //     string name;
-//     //     decimal supplier_id;
-//     //     decimal price;
-//     // |} inventoryType;
-    
-// };
-
-
-function complexTableSelection(jdbc:Client jdbcClient, string columns = "*",string condition = "True") returns sql:Error?{
-            // "complexType":"complex",
-            // "inventoryType":"inventory_item"
-    io:println("------ Start Query in Complex table-------");
-
-    string selectionQuery = selecionQueryMaker("complexTypes",columns,condition);
-
-        selectionQuery = "select complexType::text , inventoryType::text from complexTypes";
-        // selectionQuery = "select complexType , inventoryType::text from complexTypes";
-        stream<record{}, error> resultStream =
-        jdbcClient->query(selectionQuery, ComplexRecord);
-
-
-    stream<ComplexRecord, sql:Error> customerStream =
-        <stream<ComplexRecord, sql:Error>>resultStream;
-    
-    error? e = customerStream.forEach(function(ComplexRecord rec) {
-        io:println("\n");
-        io:println(rec);
-        // io:println(rec.complexType.r);
-        // io:println(rec.inventoryType.name);
-        // io:println("\n");
-    });
-    
-    if (e is error) {
-        io:println(e);
-    }
-
-    io:println("------ End Query in Complex table-------");
-
-
-}
-
-
-
-
-
 
 
 
