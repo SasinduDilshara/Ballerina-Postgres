@@ -63,7 +63,7 @@ function binaryProcedureCall(jdbc:Client jdbcClient,
     sql:BinaryValue binaryInput,        sql:BinaryValue binaryInOut
     )  returns sql:ProcedureCallResult|sql:Error {
 
-// ${inSmallInput} 
+
 
 
     sql:ProcedureCallResult|sql:Error result;

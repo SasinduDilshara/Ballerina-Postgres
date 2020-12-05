@@ -63,13 +63,7 @@ sql:TextValue TextVal2 = new("A");
 // byte[] byteVal1 = [1,2,3,4,5,6];
 // byte[] byteVal2 = [1,2,3,4,5,6];
 
-sql:TimestampValue timeStampValue = new("1997-12-17 15:37:16.00");
-sql:TimestampValue timeStamptzValue = new("1997-12-17 15:37:16.00");
-// sql:TimestampValue timeStamptzValue = new("2004-10-19 10:23:54+02");
-sql:DateValue dateValue = new("1997-12-17");
-sql:TimeValue timeValue = new("04:05:06");
-sql:TimeValue timeWithTimeZoneType = new("04:05:06");
-// string inter = "4 years";
+
 
 
 
@@ -80,7 +74,6 @@ sql:TimeValue timeWithTimeZoneType = new("04:05:06");
 
 
 int inter = 4;
-sql:BooleanValue booleanVaue = new(true);
 string pointVal = "(1,2)";
 string inetVal = "192.168.0.1/24";
 
@@ -164,55 +157,6 @@ function proceduresCalls(jdbc:Client jdbcClient)  returns sql:ProcedureCallResul
     // io:println(byteVal1.value);
 
  
-
-
-
-
-
-    result = datetimeProcedureCall(jdbcClient,
-         timeStampValue,timeStampValue
-        ,timeStamptzValue,timeStamptzValue
-        ,dateValue,dateValue
-        ,timeValue,timeValue
-        ,timeWithTimeZoneType,timeWithTimeZoneType
-        // ,inter,inter
-    );
-
-    time:Time|error timeCreated = time:createTime(2017, 3, 28, 23, 42, 45,554, "Asia/Colombo");
-
-
-    if(timeCreated is time:Time){
-            sql:TimestampValue timeStampValue2 = new(timeCreated);
-            sql:TimestampValue timeStamptzValue2 = new(timeCreated);
-            sql:DateValue dateValue2 = new(timeCreated);
-            sql:TimeValue timeValue2 = new(timeCreated);
-            sql:TimeValue timeWithTimeZoneType2 = new(timeCreated);
-
-
-             result = datetimeProcedureCall(jdbcClient,
-                                            timeStampValue,timeStampValue
-                                            ,timeStamptzValue,timeStamptzValue
-                                            ,dateValue,dateValue
-                                            ,timeValue,timeValue
-                                            ,timeWithTimeZoneType,timeWithTimeZoneType
-                                            // ,inter,inter
-                                            );
-
-
-    }
-
-
-
-
-    result = booleanProcedureCall(jdbcClient,
-        booleanVaue,booleanVaue
-    );
-
-
-
-
-
-
 
 
 

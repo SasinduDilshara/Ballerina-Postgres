@@ -61,7 +61,7 @@ function moneyProcedureCall(jdbc:Client jdbcClient,
     float moneyInput,        float moneyInOut
     )  returns sql:ProcedureCallResult|sql:Error {
 
-// ${inSmallInput} 
+
 
 
     sql:ProcedureCallResult|sql:Error result;

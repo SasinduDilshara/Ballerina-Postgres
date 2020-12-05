@@ -77,15 +77,6 @@ function characterProcedureCall(jdbc:Client jdbcClient,
     ,string nameInput,        string nameInOut
     )  returns sql:ProcedureCallResult|sql:Error {
 
-// ${charInput},
-//                 ${charInOutId},
-//                 ${varcharInput},
-//                 ${varcharInOutId},
-//                 ${textInput},
-//                 ${textInOutId},
-//                 ${nameInput},
-//                 ${nameInOutId}   
-
 
     sql:ProcedureCallResult|sql:Error result;
 

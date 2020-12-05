@@ -7,8 +7,8 @@ function run(jdbc:Client jdbcClient){
     _ = MoneyTableProcess(jdbcClient);
     _ = CharacterTableProcess(jdbcClient);
     _ = BinaryTableProcess(jdbcClient);
-    // _ = DatetimeTableProcess(jdbcClient);
-    // _ = BooleanTableProcess(jdbcClient);
+    _ = DatetimeTableProcess(jdbcClient);
+    _ = BooleanTableProcess(jdbcClient);
     // _ = EnumTableProcess(jdbcClient);
     // _ = geometricTableProcess(jdbcClient);
     // _ = networkTableProcess(jdbcClient);
