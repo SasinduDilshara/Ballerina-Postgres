@@ -88,7 +88,6 @@ int inter = 4;
 
 
 
-xml xmlVal = xml `<foo><tag>bar</tag><tag>tag</tag></foo>`;
 
 // string xmlVal = "<foo><tag>bar</tag><tag>tag</tag></foo>";
 string jsonVal = "{\"name\":\"Hello\"}";
@@ -161,10 +160,6 @@ function proceduresCalls(jdbc:Client jdbcClient)  returns sql:ProcedureCallResul
 
 
 
-
-    result = xmlProcedureCall(jdbcClient,
-        xmlVal,xmlVal
-    );
 
 
 
