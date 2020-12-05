@@ -24,13 +24,12 @@ function run(jdbc:Client jdbcClient){
     _ = uuidTableProcess(jdbcClient);
     _ = xmlTableProcess(jdbcClient);
     _ = jsonTableProcess(jdbcClient);
-    // result = createArrayTable(jdbcClient);
+    _ = arrayTableProcess(jdbcClient);
     // result = createCompositeTable(jdbcClient);
     // result = createRangeTable(jdbcClient);
     // result = createDomainTable(jdbcClient);
     // result = createObjectIdentifierTable(jdbcClient);
     // result = createPglsnTable(jdbcClient);
-    // result = createPseudoTypeTable(jdbcClient);
     
     //  return result;   
 

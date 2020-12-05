@@ -12,28 +12,6 @@ public function test(){
 
 
 
-
-
-
-
-
-
-
-
-public type ArrayRecord record{
-    
-    int ID;
-    string textArrayType;
-    string[] textArray2Type;
-    int[] integerArrayType;
-    string integerArray2Type;
-    int[5] arrayType;
-    int[] array2Type;
-    boolean[] booleanArrayType;
-    int[] byteaArrayType;
-    decimal[] floatArrayType;
-};
-
 // sql:StructValue complexRecord = new(record{
 
 // })

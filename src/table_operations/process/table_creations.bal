@@ -9,34 +9,6 @@ import ballerina/sql;
 
 
 
-function createArrayTable(jdbc:Client jdbcClient) returns int|string|sql:Error?{
-
-   string tableName = "arrayTypes";
-
-        CreateQueries createTableQuery = createQueryMaker({
-            "ID": "SERIAL", 
-            "textArrayType":"text[][]",
-            "textArray2Type":"text[]",
-            "integerArrayType":"int[]",
-            "integerArray2Type":"int[][]",
-            "arrayType":"int array[5]",
-            "array2Type":"int array",
-            "booleanArrayType":"boolean[]",
-            "byteaArrayType":"int[]",
-            "floatArrayType":"double precision[]"
-        },"ID");
-
-        int|string|sql:Error? initResult = initializeTable(jdbcClient, tableName , createTableQuery.createQuery);
-        if (initResult is int) {
-            io:println("Sample executed successfully!");
-        } 
-        else if (initResult is sql:Error) {
-            io:println("Customer table initialization failed: ", initResult);
-    }
-
-    return initResult;
-
-}
 
 function createCompositeTable(jdbc:Client jdbcClient) returns int|string|sql:Error?{
 
