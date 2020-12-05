@@ -164,11 +164,7 @@ function proceduresCalls(jdbc:Client jdbcClient)  returns sql:ProcedureCallResul
 
 
 
-    //   result = jsonProcedureCall(jdbcClient,
-    //     jsonVal,jsonVal
-    //     ,jsonVal,jsonVal
-    //     ,jsonVal,jsonVal
-    // );
+
 
 
 

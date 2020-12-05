@@ -17,7 +17,7 @@ function run(jdbc:Client jdbcClient){
     _ = textsearchTableProcess(jdbcClient);
     _ = uuidTableProcess(jdbcClient);
     _ = xmlTableProcess(jdbcClient);
-    // _ = jsonTableProcess(jdbcClient);
+    _ = jsonTableProcess(jdbcClient);
     // _ = arrayTableProcess(jdbcClient);
     // _ = compositeTableProcess(jdbcClient);
     // _ = rangeTableProcess(jdbcClient);
