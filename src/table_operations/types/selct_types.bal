@@ -11,35 +11,6 @@ public function test(){
 }
 
 
-public type NetworkRecord record{
-    
-    int ID;
-    string inetType;
-    string cidrType;
-    string macaddrType;
-    string macaddr8Type;
-};
-
-public type GeometricRecord record{
-    
-    int ID;
-    string pointType;
-    string lineType;
-    string lsegType;
-    string boxType;
-    string pathType;
-    string polygonType;
-    string circleType;
-
-};
-
-public type EnumRecord record{
-    
-    int ID;
-    string enumType;
-
-};
-
 
 
 
@@ -69,22 +40,9 @@ public type UuidRecord record{
     byte[] uuidType;
 };
 
-public type TextSearchRecord record{
-    
-    int ID;
-    string tsvectorType;
-    byte[] tsqueryType;
-};
 
 
-public type BitRecord record{
-    
-    int ID;
-    string bitType;
-    decimal bitVaryType;
-    float bitVaryType2;
-    int bitOnlyType;
-};
+
 
 
 public type ArrayRecord record{

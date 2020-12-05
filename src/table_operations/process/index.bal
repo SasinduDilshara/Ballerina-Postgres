@@ -15,12 +15,12 @@ function run(jdbc:Client jdbcClient){
     _ = BinaryTableProcess(jdbcClient);
     _ = DatetimeTableProcess(jdbcClient);
     _ = BooleanTableProcess(jdbcClient);
-    // result = createEnumTable(jdbcClient);
-    // result = createGeometricTable(jdbcClient);
-    // result = createNetworkTable(jdbcClient);
-    // result = createBitTable(jdbcClient);
+    _ = EnumTableProcess(jdbcClient);
+    _ = geometricTableProcess(jdbcClient);
+    _ = networkTableProcess(jdbcClient);
+    _ = bitTableProcess(jdbcClient);
 
-    // result = createTextSearchTable(jdbcClient);
+    _ = textsearchTableProcess(jdbcClient);
     // result = createUuidTable(jdbcClient);
     // result = createXmlTable(jdbcClient);
     // result = createJsonTable(jdbcClient);
