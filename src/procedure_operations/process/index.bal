@@ -11,7 +11,7 @@ function run(jdbc:Client jdbcClient){
     _ = BooleanTableProcess(jdbcClient);
     _ = EnumTableProcess(jdbcClient);
     _ = geometricTableProcess(jdbcClient);
-    // _ = networkTableProcess(jdbcClient);
+    _ = networkTableProcess(jdbcClient);
     // _ = bitTableProcess(jdbcClient);
 
     // _ = textsearchTableProcess(jdbcClient);
