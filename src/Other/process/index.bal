@@ -97,7 +97,6 @@ string jsonVal = "{\"name\":\"Hello\"}";
 // int[]  arr = [32767,32767,32767,32767];
 // sql:ArrayValue arrVal = new(arrIntVal);
 
-decimal[] arr = [1.1,2.1,0.113,4.1];
 // decimal[] arr = [1.1,2.1,0.113,4.1];
 
 // string[] arr = ["A","B"];
@@ -108,7 +107,6 @@ decimal[] arr = [1.1,2.1,0.113,4.1];
 
 // sql:IntegerValue[] arr = [lowerInt,lowerInt];
 
-sql:ArrayValue arrVal = new(arr);
 
 string rangVal = "(1,2)";
 
@@ -168,10 +166,6 @@ function proceduresCalls(jdbc:Client jdbcClient)  returns sql:ProcedureCallResul
 
 
 
-
-    result = arrayProcedureCall(jdbcClient,
-        arrVal,arrVal
-    );
 
 
 
