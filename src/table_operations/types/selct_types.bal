@@ -27,11 +27,6 @@ public type JsonRecord record{
     string jsonpathType;
 };
 
-public type XmlRecord record{
-    
-    int ID;
-    string xmlType;
-};
 
 public type ArrayRecord record{
     

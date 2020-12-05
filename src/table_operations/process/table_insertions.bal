@@ -11,58 +11,6 @@ time:Time time_ = time:currentTime();
 
 
 
-
-function xmlTableInsertions(jdbc:Client jdbcClient) returns sql:ExecutionResult|sql:Error?{
-
-    sql:ExecutionResult|sql:Error? result;
-    
-    // result = insertXmlTable(jdbcClient,
-    
-    //     "<foo>bar</foo>"
-
-    // );
-    // result = insertXmlTable(jdbcClient,
-    
-    //     "bar"
-
-    // );
-    result = insertXmlTable(jdbcClient,
-    
-     xml `<foo><tag>bar</tag><tag>tag</tag></foo>`
-
-    );
-    return result;
-
-}
-
-function insertXmlTable(jdbc:Client jdbcClient ,string|xml xmlType) returns sql:ExecutionResult|sql:Error?{
-
-// "xmlType":"xml"
-   sql:ParameterizedQuery insertQuery =
-            `INSERT INTO xmlTypes (
-                xmlType
-                             ) 
-             VALUES (
-                ${xmlType}
-            )`;
-    
-
-    sql:ExecutionResult|sql:Error result = jdbcClient->execute(insertQuery);
-
-    if (result is sql:ExecutionResult) {
-        io:println("\nInsert success, generated Id: ", result.lastInsertId);
-    } 
-    else{
-        io:println("\nError ocurred while insert to numeric table\n");
-        io:println(result);
-        io:println("\n");
-    }
-    
-    return result;
-        
-
-}
-
 function JsonTableInsertions(jdbc:Client jdbcClient) returns sql:ExecutionResult|sql:Error?{
 
     sql:ExecutionResult|sql:Error? result;

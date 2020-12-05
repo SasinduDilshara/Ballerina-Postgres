@@ -22,7 +22,7 @@ function run(jdbc:Client jdbcClient){
 
     _ = textsearchTableProcess(jdbcClient);
     _ = uuidTableProcess(jdbcClient);
-    // result = createXmlTable(jdbcClient);
+    _ = xmlTableProcess(jdbcClient);
     // result = createJsonTable(jdbcClient);
     // result = createArrayTable(jdbcClient);
     // result = createCompositeTable(jdbcClient);

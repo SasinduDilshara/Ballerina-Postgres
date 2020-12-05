@@ -8,27 +8,6 @@ import ballerina/sql;
 
 
 
-function createXmlTable(jdbc:Client jdbcClient) returns int|string|sql:Error?{
-
-   string tableName = "xmlTypes";
-
-        CreateQueries createTableQuery = createQueryMaker({
-            "ID": "SERIAL", 
-            "xmlType":"xml"
-        },"ID");
-
-        int|string|sql:Error? initResult = initializeTable(jdbcClient, tableName , createTableQuery.createQuery);
-        if (initResult is int) {
-            io:println("Sample executed successfully!");
-        } 
-        else if (initResult is sql:Error) {
-            io:println("Customer table initialization failed: ", initResult);
-    }
-
-    return initResult;
-
-}
-
 function createJsonTable(jdbc:Client jdbcClient) returns int|string|sql:Error?{
 
    string tableName = "jsonTypes";

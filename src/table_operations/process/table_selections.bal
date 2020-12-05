@@ -418,55 +418,6 @@ function jsonTableSelection(jdbc:Client jdbcClient, string columns = "*",string 
 
 
 
-//.........................................................................................................
-
-
-
-
-// public type XmlRecord record{
-    
-//     int ID;
-//     string xmlType;
-// };
-
-
-function xmlTableSelection(jdbc:Client jdbcClient, string columns = "*",string condition = "True") returns sql:Error?{
-// "xmlType":"xml"
-     io:println("------ Start Query in Xml table-------");
-
-    string selectionQuery = selecionQueryMaker("xmlTypes",columns,condition);
-
-    selectionQuery = "select ID,xmlType::text from xmlTypes";
-
-        stream<record{}, error> resultStream =
-        jdbcClient->query(selectionQuery, XmlRecord);
-
-
-    stream<XmlRecord, sql:Error> customerStream =
-        <stream<XmlRecord, sql:Error>>resultStream;
-    
-    error? e = customerStream.forEach(function(XmlRecord rec) {
-        io:println("\n");
-        io:println(rec);
-        io:println(rec.xmlType);
-        io:println("\n");
-    });
-    
-    if (e is error) {
-        io:println(e);
-    }
-
-    io:println("------ End Query in Xml table-------");
-
-
-}
-
-
-
-
-
-
-
 
 
 
