@@ -6,11 +6,11 @@ import ballerina/sql;
 public type characterRecord record{
 
     int ID;
-    json charType;
-    json varcharType;
-    json textType;
-    json nameType;
-    json charWithoutLengthType;
+    string charType;
+    string varcharType;
+    string textType;
+    string nameType;
+    string charWithoutLengthType;
 
 };
 
