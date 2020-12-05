@@ -110,7 +110,6 @@ string jsonVal = "{\"name\":\"Hello\"}";
 
 
 // int dom1 = 1;
-sql:IntegerValue dom1 = new(1);
 string oi1 = "564182";
 string pg = "16/B374D848";
 string enVal = "value1";
@@ -170,9 +169,7 @@ function proceduresCalls(jdbc:Client jdbcClient)  returns sql:ProcedureCallResul
 
 
 
-    // result = domainProcedureCall(jdbcClient,
-    //     dom1,dom1
-    // );
+
     // result = objectidentifierProcedureCall(jdbcClient,
     //     oi1,oi1
     // );
