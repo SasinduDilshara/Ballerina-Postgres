@@ -9,7 +9,7 @@ function run(jdbc:Client jdbcClient){
     _ = BinaryTableProcess(jdbcClient);
     _ = DatetimeTableProcess(jdbcClient);
     _ = BooleanTableProcess(jdbcClient);
-    // _ = EnumTableProcess(jdbcClient);
+    _ = EnumTableProcess(jdbcClient);
     // _ = geometricTableProcess(jdbcClient);
     // _ = networkTableProcess(jdbcClient);
     // _ = bitTableProcess(jdbcClient);

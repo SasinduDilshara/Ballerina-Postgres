@@ -223,14 +223,6 @@ function proceduresCalls(jdbc:Client jdbcClient)  returns sql:ProcedureCallResul
 
 
 
-    result = enumProcedureCall(jdbcClient,
-        enVal,enVal
-    );
-
-
-
-
-
     // result = complexProcedureCall(jdbcClient,
     //     cplx,cplx
     // );
