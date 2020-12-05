@@ -169,10 +169,7 @@ function proceduresCalls(jdbc:Client jdbcClient)  returns sql:ProcedureCallResul
 
 
 
-    // result = pglsnProcedureCall(jdbcClient,
-    //     pg,pg
-    // );
-
+   
 
 
 
