@@ -108,7 +108,6 @@ string jsonVal = "{\"name\":\"Hello\"}";
 // sql:IntegerValue[] arr = [lowerInt,lowerInt];
 
 
-string rangVal = "(1,2)";
 
 // int dom1 = 1;
 sql:IntegerValue dom1 = new(1);
@@ -116,7 +115,6 @@ string oi1 = "564182";
 string pg = "16/B374D848";
 string enVal = "value1";
 
-string cplx = "(1.1,2.32)";
 
 string anyVal1 = "1";
 string anyVal2= "[1,2,3,4,5]";
@@ -170,9 +168,7 @@ function proceduresCalls(jdbc:Client jdbcClient)  returns sql:ProcedureCallResul
 
 
 
-    // result = rangeProcedureCall(jdbcClient,
-    //     rangVal,rangVal
-    // );
+
 
     // result = domainProcedureCall(jdbcClient,
     //     dom1,dom1
@@ -188,9 +184,7 @@ function proceduresCalls(jdbc:Client jdbcClient)  returns sql:ProcedureCallResul
 
 
 
-    // result = complexProcedureCall(jdbcClient,
-    //     cplx,cplx
-    // );
+
     // result = anyProcedureCall(jdbcClient,
     //     anyVal1,anyVal1,arrVal,arrVal,anyVal3,anyVal3,anyVal4,anyVal4,anyVal5,anyVal5,anyVal6,anyVal6
     // );
