@@ -12,20 +12,6 @@ public function test(){
 
 
 
-
-public type RangeRecord record{
-    
-    int ID;
-    string int4rangeType;
-    string int8rangeType;
-    string numrangeType;
-    string tsrangeType;
-    string tstzrangeType;
-    string daterangeType;
-    string floatrangeType;
-};
-
-
 public type DomainRecord record{
     
     int ID;

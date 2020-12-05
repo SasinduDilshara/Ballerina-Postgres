@@ -7,32 +7,6 @@ import ballerina/sql;
 
 
 
-function createRangeTable(jdbc:Client jdbcClient) returns int|string|sql:Error?{
-
-   string tableName = "rangeTypes";
-
-        CreateQueries createTableQuery = createQueryMaker({
-            "ID": "SERIAL", 
-            "int4rangeType":"int4range",
-            "int8rangeType":"int8range",
-            "numrangeType":"numrange",
-            "tsrangeType":"tsrange",
-            "tstzrangeType":"tstzrange",
-            "daterangeType":"daterange",
-            "floatrangeType":"floatrange"
-        },"ID");
-
-        int|string|sql:Error? initResult = initializeTable(jdbcClient, tableName , createTableQuery.createQuery);
-        if (initResult is int) {
-            io:println("Sample executed successfully!");
-        } 
-        else if (initResult is sql:Error) {
-            io:println("Customer table initialization failed: ", initResult);
-    }
-
-    return initResult;
-
-}
 
 function createDomainTable(jdbc:Client jdbcClient) returns int|string|sql:Error?{
 

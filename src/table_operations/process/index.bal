@@ -26,7 +26,7 @@ function run(jdbc:Client jdbcClient){
     _ = jsonTableProcess(jdbcClient);
     _ = arrayTableProcess(jdbcClient);
     _ = compositeTableProcess(jdbcClient);
-    // result = createRangeTable(jdbcClient);
+    _ = rangeTableProcess(jdbcClient);
     // result = createDomainTable(jdbcClient);
     // result = createObjectIdentifierTable(jdbcClient);
     // result = createPglsnTable(jdbcClient);

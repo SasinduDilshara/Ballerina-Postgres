@@ -178,63 +178,6 @@ function domainTableSelection(jdbc:Client jdbcClient, string columns = "*",strin
 }
 
 
-//.........................................................................................................
-
-
-
-// public type RangeRecord record{
-    
-//     int ID;
-//     string int4rangeType;
-//     string int8rangeType;
-//     string numrangeType;
-//     string tsrangeType;
-//     string tstzrangeType;
-//     string daterangeType;
-//     string floatrangeType;
-// };
-
-
-function rangeTableSelection(jdbc:Client jdbcClient, string columns = "*",string condition = "True") returns sql:Error?{
-            // "int4rangeType":"int4range",
-            // "int8rangeType":"int8range",
-            // "numrangeType":"numrange",
-            // "tsrangeType":"tsrange",
-            // "tstzrangeType":"tstzrange",
-            // "daterangeType":"daterange",
-            // "floatrangeType":"floatrange"
-    io:println("------ Start Query in Range table-------");
-    string selectionQuery = selecionQueryMaker("rangeTypes",columns,condition);
-
-
-        stream<record{}, error> resultStream =
-        jdbcClient->query(selectionQuery, RangeRecord);
-
-
-    stream<RangeRecord, sql:Error> customerStream =
-        <stream<RangeRecord, sql:Error>>resultStream;
-    
-    error? e = customerStream.forEach(function(RangeRecord rec) {
-        io:println("\n");
-        io:println(rec);
-        io:println(rec.int4rangeType);
-        io:println(rec.int8rangeType);
-        io:println(rec.numrangeType);
-        io:println(rec.tsrangeType);
-        io:println(rec.tstzrangeType);
-        io:println(rec.daterangeType);
-        io:println(rec.floatrangeType);
-        io:println("\n");
-    });
-    
-    if (e is error) {
-        io:println(e);
-    }
-
-    io:println("------ End Query in Range table-------");
-
-
-}
 
 
 
