@@ -12,10 +12,10 @@ function run(jdbc:Client jdbcClient){
     _ = EnumTableProcess(jdbcClient);
     _ = geometricTableProcess(jdbcClient);
     _ = networkTableProcess(jdbcClient);
-    // _ = bitTableProcess(jdbcClient);
+    _ = bitTableProcess(jdbcClient);
 
-    // _ = textsearchTableProcess(jdbcClient);
-    // _ = uuidTableProcess(jdbcClient);
+    _ = textsearchTableProcess(jdbcClient);
+    _ = uuidTableProcess(jdbcClient);
     // _ = xmlTableProcess(jdbcClient);
     // _ = jsonTableProcess(jdbcClient);
     // _ = arrayTableProcess(jdbcClient);

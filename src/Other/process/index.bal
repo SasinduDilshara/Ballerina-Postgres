@@ -81,17 +81,12 @@ int inter = 4;
 // string varbitn = "01110";
 // string bit = "0";
 
-sql:BitValue bitn = new(1);
     // result = xmlProcedureCall(jdbcClient,
     //     xmlVal,xmlVal
     // );
-sql:BitValue varbitn = new(1);
-sql:BitValue bit = new(0);
 
-string tv = "a fat cat sat on a mat and ate a fat rat";
-string tq = "fat & rat";
 
-string uid = "A0EEBC99-9C0B-4EF8-BB6D-6BB9BD380A11";
+
 
 xml xmlVal = xml `<foo><tag>bar</tag><tag>tag</tag></foo>`;
 
@@ -162,18 +157,8 @@ function proceduresCalls(jdbc:Client jdbcClient)  returns sql:ProcedureCallResul
 
 
 
-    // result = bitProcedureCall(jdbcClient,
-    //     bitn,bitn
-    //     ,varbitn,varbitn
-    //     ,bit,bit
-    // );
-    // result = textsearchProcedureCall(jdbcClient,
-    //     tv,tv
-    //     ,tq,tq
-    // );
-    // result = uuidProcedureCall(jdbcClient,
-    //     uid,uid
-    // );
+
+
 
 
 
