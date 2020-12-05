@@ -169,10 +169,6 @@ function proceduresCalls(jdbc:Client jdbcClient)  returns sql:ProcedureCallResul
 
 
 
-
-    // result = objectidentifierProcedureCall(jdbcClient,
-    //     oi1,oi1
-    // );
     // result = pglsnProcedureCall(jdbcClient,
     //     pg,pg
     // );

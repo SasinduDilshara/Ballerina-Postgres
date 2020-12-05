@@ -22,7 +22,7 @@ function run(jdbc:Client jdbcClient){
     _ = compositeTableProcess(jdbcClient);
     _ = rangeTableProcess(jdbcClient);
     _ = domainTableProcess(jdbcClient);
-    // _  = objectidentifiersTableProcess(jdbcClient);
+    _  = objectidentifiersTableProcess(jdbcClient);
     // _ = pglsnTableProcess(jdbcClient);
     
 
