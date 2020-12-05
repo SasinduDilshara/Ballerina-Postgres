@@ -21,7 +21,7 @@ function run(jdbc:Client jdbcClient){
     _ = bitTableProcess(jdbcClient);
 
     _ = textsearchTableProcess(jdbcClient);
-    // result = createUuidTable(jdbcClient);
+    _ = uuidTableProcess(jdbcClient);
     // result = createXmlTable(jdbcClient);
     // result = createJsonTable(jdbcClient);
     // result = createArrayTable(jdbcClient);

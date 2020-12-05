@@ -33,18 +33,6 @@ public type XmlRecord record{
     string xmlType;
 };
 
-
-public type UuidRecord record{
-    
-    int ID;
-    byte[] uuidType;
-};
-
-
-
-
-
-
 public type ArrayRecord record{
     
     int ID;

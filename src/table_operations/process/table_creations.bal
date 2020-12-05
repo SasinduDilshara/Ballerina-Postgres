@@ -7,26 +7,6 @@ import ballerina/sql;
 
 
 
-function createUuidTable(jdbc:Client jdbcClient) returns int|string|sql:Error?{
-
-   string tableName = "uuidTypes";
-
-        CreateQueries createTableQuery = createQueryMaker({
-            "ID": "SERIAL", 
-            "uuidType":"uuid"
-        },"ID");
-
-        int|string|sql:Error? initResult = initializeTable(jdbcClient, tableName , createTableQuery.createQuery);
-        if (initResult is int) {
-            io:println("Sample executed successfully!");
-        } 
-        else if (initResult is sql:Error) {
-            io:println("Customer table initialization failed: ", initResult);
-    }
-
-    return initResult;
-
-}
 
 function createXmlTable(jdbc:Client jdbcClient) returns int|string|sql:Error?{
 
