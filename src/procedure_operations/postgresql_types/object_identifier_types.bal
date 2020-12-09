@@ -3,7 +3,8 @@ import ballerina/java.jdbc;
 import ballerina/sql;
 
 
-string oi1 = "564182";
+// string oi1 = "564182";
+int integerdata = 32767;
 
 
 function objectidentifiersTableProcess(jdbc:Client jdbcClient) {
@@ -11,9 +12,9 @@ function objectidentifiersTableProcess(jdbc:Client jdbcClient) {
     sql:ExecutionResult|sql:Error createResult  =  createObjectidentifierProcedures(jdbcClient);
     sql:ProcedureCallResult|sql:Error callResult;
 
-    // callResult = objectidentifierProcedureCall(jdbcClient,
-    //     oi1,oi1
-    // );
+    callResult = objectidentifierProcedureCall(jdbcClient,
+        integerdata,integerdata
+    );
      sql:ExecutionResult|sql:Error teardownResult = objectidentifierTearDown(jdbcClient);
 
 }
@@ -58,7 +59,7 @@ function createObjectidentifierProcedures(jdbc:Client jdbcClient) returns sql:Ex
 }
 
 function objectidentifierProcedureCall(jdbc:Client jdbcClient,
-    string oidInput,        string oidInOut
+    int oidInput,        int oidInOut
     )  returns sql:ProcedureCallResult|sql:Error {
 
 // ${inSmallInput} 
@@ -70,7 +71,7 @@ function objectidentifierProcedureCall(jdbc:Client jdbcClient,
     
     sql:ParameterizedCallQuery callQuery =
             `call objectidentifiertest(
-                ${oidInput}::oid,
+                ${oidInput},
                 ${oidInOutId}              
             )`;
     
@@ -80,7 +81,7 @@ function objectidentifierProcedureCall(jdbc:Client jdbcClient,
     if (result is sql:ProcedureCallResult) {
         io:println("\n");
         io:println(result);
-        io:println("objectidentifier value"," - ",oidInOutId.get(string));
+        io:println("objectidentifier value"," - ",oidInOutId.get(int));
         io:println("objectidentifier procedure successfully created");
         io:println("\n");
     } 
