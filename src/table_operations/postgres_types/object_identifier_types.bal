@@ -3,11 +3,13 @@ import ballerina/java.jdbc;
 import ballerina/sql;
 
 
+int integerdata = 32767;
+
 
 public type ObjectIdentifierRecord record{
     
     int ID;
-    string oidType;
+    int oidType;
     string regclassType;
     string regconfigType;
     string regdictionaryType;
@@ -19,6 +21,8 @@ public type ObjectIdentifierRecord record{
     string regroleType;
     string regtypeType;
 };
+
+
 
 function objectidentifiersTableProcess(jdbc:Client jdbcClient) {
 
@@ -70,14 +74,14 @@ function objectIdentifierTableInsertions(jdbc:Client jdbcClient) returns sql:Exe
     sql:ExecutionResult|sql:Error? result;
     result = insertObjectIdentifierTable(jdbcClient,
     
-        "564182","pg_type","english","simple","pg_catalog","!","*(int,int)","NOW","sum(int4)","postgres","int"
+        integerdata,"pg_type","english","simple","pg_catalog","!","*(int,int)","NOW","sum(int4)","postgres","int"
 
     );
     return result;
 
 }
 
-function insertObjectIdentifierTable(jdbc:Client jdbcClient ,string oidType, string regclassType, string regconfigType, string regdictionaryType, string regnamespaceType, string regoperType, string regoperatorType, string regprocType, string regprocedureType, string regroleType, string regtypeType ) returns sql:ExecutionResult|sql:Error?{
+function insertObjectIdentifierTable(jdbc:Client jdbcClient ,int oidType, string regclassType, string regconfigType, string regdictionaryType, string regnamespaceType, string regoperType, string regoperatorType, string regprocType, string regprocedureType, string regroleType, string regtypeType ) returns sql:ExecutionResult|sql:Error?{
 
     //         "oidType" : "oid",
     //         "regclassType" : "regclass",
@@ -95,7 +99,7 @@ function insertObjectIdentifierTable(jdbc:Client jdbcClient ,string oidType, str
                 oidType, regclassType, regconfigType, regdictionaryType, regnamespaceType, regoperType, regoperatorType, regprocType, regprocedureType, regroleType, regtypeType
                              ) 
              VALUES (
-                ${oidType} ::oid,
+                ${oidType},
                  ${regclassType} ::regclass, ${regconfigType} ::regconfig, ${regdictionaryType} ::regdictionary, ${regnamespaceType} ::regnamespace, ${regoperType} ::regoper, ${regoperatorType} ::regoperator, ${regprocType} ::regproc, ${regprocedureType} ::regprocedure, ${regroleType} ::regrole, ${regtypeType} ::regtype
             )`;
     
